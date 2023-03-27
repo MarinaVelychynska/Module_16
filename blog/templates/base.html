@@ -36,7 +36,20 @@
      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Шукати </button>
      </form>
    </div>
+
+   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    {% if session.logged_in %}
+      <form class="form-inline my-2 my-lg-0" action="{{ url_for('logout') }}" method="POST">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Вийти</button>
+      </form>
+    {% else %}
+      <a href="{{ url_for('login') }}" class="btn btn-secondary my-2 my-lg-0">Увійти</a>
+    {% endif %}
+  </div>
  </nav>
+ 
 
  <main role="main" class="container">
 
